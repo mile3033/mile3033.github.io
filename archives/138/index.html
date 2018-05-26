@@ -1,0 +1,874 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+
+  
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.40.2 with theme Tranquilpeak 0.4.3-BETA">
+	<meta name="google-site-verification" content="1MuLqoAUgX7XQvWx-S5i3Zm-WP7yyA0LOvApqTweSrk" />
+    <title>启动器 Rolan2</title>
+    <meta name="author" content="3mile">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="https://mile3033.github.io/favicon.png">
+    
+
+    
+    <meta name="description" content="在 macOS 中，所有的软件都被放在 LaunchPad 中，只需一个手势就可以快速打开。虽然 Windows 10 中的「开始屏幕」也能做到类似的事情。但是由于 UWP 软件和传统 x86 软件的待遇完全">
+    <meta property="og:description" content="在 macOS 中，所有的软件都被放在 LaunchPad 中，只需一个手势就可以快速打开。虽然 Windows 10 中的「开始屏幕」也能做到类似的事情。但是由于 UWP 软件和传统 x86 软件的待遇完全">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="启动器 Rolan2">
+    <meta property="og:url" content="/archives/138">
+    <meta property="og:site_name" content="3mile博客">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="3mile博客">
+    <meta name="twitter:description" content="在 macOS 中，所有的软件都被放在 LaunchPad 中，只需一个手势就可以快速打开。虽然 Windows 10 中的「开始屏幕」也能做到类似的事情。但是由于 UWP 软件和传统 x86 软件的待遇完全">
+    
+      <meta name="twitter:creator" content="@3mile1">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="https://mile3033.github.io/img/a.jpg">
+    
+
+    
+      <meta property="og:image" content="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/windows/1.gif">
+    
+    
+      <meta property="og:image" content="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/cover/4.jpg">
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://mile3033.github.io/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-117920425-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://mile3033.github.io/">3mile博客</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://mile3033.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://mile3033.github.io/img/a.jpg" alt="作者的图片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://mile3033.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://mile3033.github.io/img/a.jpg" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">3mile</h4>
+        
+          <h5 class="sidebar-profile-bio"><strong>无聊到</strong>只有努力学习技术<br><strong>Email:</strong><a href="mailto:mile3@live.cn">mile3@live.cn</a></h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://mile3033.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://mile3033.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">分类</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://mile3033.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://mile3033.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">归档</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link open-algolia-search" href="https://mile3033.github.io/#search">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+      
+      <span class="sidebar-button-desc">搜索</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://mile3033.github.io/about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/3mile" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="tencent://message/?uin=975714080" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-envelope"></i>
+      
+      <span class="sidebar-button-desc">QQ to Me</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://mile3033.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              post-header-cover--partial"
+       style="background-image:url('https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/cover/4.jpg')"
+       data-behavior="5">
+    
+      <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      启动器 Rolan2
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-05-06T04:08:54Z">
+        
+  
+  
+  
+  
+    2018 五月 6
+  
+
+      </time>
+    
+    
+  
+  
+    <span>分类于</span>
+    
+      <a class="category-link" href="https://mile3033.github.io/categories/windows%e8%bd%af%e4%bb%b6">windows软件</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaIn
+               hasCoverCaption">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+            <span class="post-header-cover-caption caption">A beautiful sunrise</span>
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<p>在 macOS 中，所有的软件都被放在 LaunchPad 中，只需一个手势就可以快速打开。虽然 Windows 10 中的「开始屏幕」也能做到类似的事情。但是由于 UWP 软件和传统 x86 软件的待遇完全不同，这让这块「开始屏幕」上充斥着大大小小的图标，风格不一的动态磁贴，再加上稍慢的启动速度，总是没有 macOS 那么赏心悦目。是时候找一个软件启动器了。</p>
+
+<p>Rolan 2 就是这样一个干净利落的快捷软件启动器软件。这款由国内独立开发者开发的软件，大小不到 1 MB，十分轻量，无需安装就能使用。</p>
+
+<h2 id="启动软件-用-rolan-2-就够了">启动软件，用 Rolan 2 就够了</h2>
+
+<p>Rolan 2 的主要功能是快速启动软件。</p>
+
+<p><img src="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/windows/1.gif" alt="为 Rolan 2 添加软件" />为 Rolan 2 添加软件</p>
+
+<p>添加软件的方式有两种——</p>
+
+<ol>
+<li>将软件图标拖进 Rolan 2 快速添加。 支持批量添加操作，如果你之前的大部分图标都在桌面上，把这些图标直接拖进去就能完成添加。</li>
+<li>右键空白区域，选择「新建项目」。 在新建窗口中 Rolan 2 会列出桌面快捷方式、开始菜单中的项目、系统项目以及 Pro 功能中的快捷操作。通过这几个方式，很快就可以把大部分软件添加到 Rolan 2 中。</li>
+</ol>
+
+<p>也可以进入自定义界面，添加高度定制的项目。可以修改路径和图标，还能添加运行参数，可定制化程度非常高。尽管 Rolan 2 的定位是软件启动器。但是它同时也支持放置文件夹、文件、网页。只要你愿意，完全可以把它当作一个小型桌面来用。</p>
+
+<p><img src="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/windows/2.gif" alt="添加自定义软件" />添加自定义软件</p>
+
+<p>我们可以将不同类型的软件放在不同的标签页中，实现软件的整理。标签页可以自定义名称。切换标签页可以用 <code>Tab</code> 和 <code>Shift + Tab</code> 进行来回切换。</p>
+
+<p>在启动软件时，右键图标可以选择使用管理员身份打开、选择打开方式，也有普通的右键菜单进行更多的操作，几乎没有上手难度。</p>
+
+<h2 id="效率-从鼠标开始">效率，从鼠标开始</h2>
+
+<p>不同于 Listary、Wox、Everything 这类依赖键盘的软件，Rolan 2 的最大特点就是可以靠鼠标完成所有操作。你不需要记住电脑中的每个软件名字，双眼扫过软件列表，用鼠标点击就可以启动。或许这种方式更符合直觉，也更适合普通用户使用。</p>
+
+<p>除了常规的几种呼出方法：点击右下角图标、屏幕边缘自动吸附、键盘快捷键（默认是 <code>Alt + Space</code> 呼出）。我们还可以选择 <strong>按下鼠标中键显示和隐藏主窗口</strong>，由于 <strong>按下鼠标中键</strong> 这个操作在日常操作中实际使用率非常低，这恰好保证了用户可以用鼠标准确的呼出 Rolan 2，确实一个很聪明的设计。再配合另一个选项「显示窗口时跟随鼠标位置」，效率可以获得指数级的提升。</p>
+
+<p>在很多软件中，多个标签页通常会导致反复查看，浪费时间。而在 Rolan 2 中的多个页面可以用「鼠标悬停」和「鼠标滚轮」来切换，避免多次点击才能打开项目的尴尬。</p>
+
+<p><img src="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/windows/3.gif" alt="鼠标移动切换标签页" />鼠标移动切换标签页</p>
+
+<p>如果你不希望 Rolan 2 的存在感太强，还可以让它「失去鼠标焦点后自动隐藏」或者「打开项目后自动隐藏」，让它在后台安安静静地做一个小秘书。</p>
+
+<h2 id="高级搜索功能">高级搜索功能</h2>
+
+<p>如果因标签页太多而找不到软件，Rolan 2 中的搜索功能可以帮助你在所有标签页中找到软件。</p>
+
+<p>在设置中开启「同时搜索开始菜单」，Rolan 就能搜索到几乎所有的安装版软件（绿色软件只能手动添加）。相比其他文件搜索软件，Rolan 仅对开始菜单的搜索是一步好棋，因为没有其他文件作为干扰项，不需要输入太多字符，也不用花精力筛选搜索结果。直接输入一两个首字母就可以搜索到软件并打开。</p>
+
+<p>除了搜索，直接在主界面输入 <code>&gt;</code>，就可以快速打开 CMD 界面并执行这条命令，对常用 CMD 的用户而言实在是太方便。</p>
+
+<p><img src="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/windows/4.gif" alt="Rolan 2 高级搜索" />Rolan 2 高级搜索</p>
+
+<h2 id="高度可定制的界面">高度可定制的界面</h2>
+
+<p>在 Rolan 2 中，不仅提供了颜色丰富的主题、可调节的透明度。连整个界面也是完全可定制的。</p>
+
+<p>在定制界面中，可以选择 Rolan 2 是横向布局还是竖向布局，是否显示项目名称，是否锁定栏目和大小。</p>
+
+<p>比如我个人不是很喜欢占用空间的横向布局，所以采用了竖向布局 + 大图标 + 不显示名称。让它看上去像手机主屏幕一样。</p>
+
+<p><img src="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/windows/5.gif" alt="Rolan 2 自可定制的界面" />Rolan 2 自可定制的界面</p>
+
+<p>完成图标的排列后，锁定布局和大小可以保证 Rolan 2 中的图标不被轻易打乱。不过你也可以让 Rolan 2 自动按使用频率排列图标（仅计算 Rolan 2 中打开的次数）。</p>
+
+<h2 id="除了启动软件-rolan-2-还能为你做这些事">除了启动软件，Rolan 2 还能为你做这些事</h2>
+
+<h3 id="绑定快捷键-快速打开任何软件">绑定快捷键，快速打开任何软件</h3>
+
+<p>除了呼出主窗口的快捷键，Rolan 2 竟然还可以为其他软件设置快捷键。在「热键绑定」中设置一下文件和相应的快捷键，只要 Rolan 2 开着，就可以用快捷键打开任何软件，连打开主窗口这一步都省了！</p>
+
+<h3 id="集成多个实用的系统操作">集成多个实用的系统操作</h3>
+
+<p>在「新建项目」中，Rolan Pro 提供了一些实用的系统操作，比如「自动关机」「关闭显示器」「Hosts 编辑」。还集成了一些系统项目，比如「磁盘清理工具」「注册表编辑器」「组策略管理」……看来 Rolan 2 是想把鼠标操作为主的思想贯彻到底了。</p>
+
+<p><img src="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/windows/6.gif" alt="多个实用系统功能" />多个实用系统功能</p>
+
+<h3 id="轻量-便携-随处可用">轻量 + 便携，随处可用</h3>
+
+<p>官方版本的 Rolan 2 就是单文件的绿色软件。不会对注册表做修改，也不会产生系统垃圾。直接放进 U 盘换台设备就能直接使用。Rolan 2 还支持将路径转换为便携路径，如果需要带走配置文件，需要时将整个目录一起复制即可。</p>
+
+<h2 id="高质量的更新与改进">高质量的更新与改进</h2>
+
+<p>我是很早一批使用 Rolan 1 的用户，当时软件仍在完善中，更新非常频繁，几乎每次开机都能收到升级通知，这也是后来放弃它的原因之一。如今重新上手 Rolan 2，我发现它在更新界面增加了稳定通道、测试通道和长周期通道三种。这也让希望稳定、喜欢尝鲜的用户都有了各自的选择。</p>
+
+<p>Rolan 2 的免费版本限制了系统操作、云备份、高级搜索、切换分组等部分功能，具体的区别可以在 <a href="https://www.getrolan.com/pro">官网对比页面</a> 查看，如果你不愿意付费购买 Pro 版本，也可以尝试一下 Rolan 1 的最后一个版本。</p>
+
+<p>这款软件的内在，绝不像它外表看上去的那么小巧。</p>
+
+<p>如果你喜欢 Rolan 2，可以在 <a href="https://www.getrolan.com/">Rolan 的官网</a> 免费下载使用。</p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://mile3033.github.io/tags/%E5%90%AF%E5%8A%A8%E5%99%A8/">启动器</a>
+
+  <a class="tag tag--primary tag--small" href="https://mile3033.github.io/tags/rolan/">rolan</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://mile3033.github.io/archives/137/" data-tooltip="谷歌插件new Tab">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://mile3033.github.io/archives/139/" data-tooltip="编辑器 Atom介绍">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://mile3033.github.io/archives/138/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://mile3033.github.io/archives/138/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://mile3033.github.io/archives/138/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 3mile. 版权所有
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://mile3033.github.io/archives/137/" data-tooltip="谷歌插件new Tab">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://mile3033.github.io/archives/139/" data-tooltip="编辑器 Atom介绍">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://mile3033.github.io/archives/138/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://mile3033.github.io/archives/138/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://mile3033.github.io/archives/138/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmile3033.github.io%2Farchives%2F138%2F">
+          <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fmile3033.github.io%2Farchives%2F138%2F">
+          <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fmile3033.github.io%2Farchives%2F138%2F">
+          <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d43ec96f413503264aab5d1cfe2ab8db";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://mile3033.github.io/img/a.jpg" alt="作者的图片" />
+    
+    <h4 id="about-card-name">3mile</h4>
+    
+      <div id="about-card-bio"><strong>无聊到</strong>只有努力学习技术<br><strong>Email:</strong><a href="mailto:mile3@live.cn">mile3@live.cn</a></div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        苦逼码农一枚
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        中国.成都
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="搜索" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://mile3033.github.io/archives/2018/0526/">
+                <h3 class="media-heading">Caddy&#43;Hugo双GO组合并实现github的webhook钩子推送</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">原因 一. 首先,为什么要用这么复杂的标题? 为什么标题会这么复杂呢？原因很简单。我自己被搞昏了，为了体现我的眩晕程度，所以用了这个复杂的名字。 另</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://mile3033.github.io/archives/2018/05/26/">
+                <h3 class="media-heading">Centos7上安装和配置Caddy</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">介绍 Caddy是一个新兴的Web服务器程序，它支持HTTP / 2和自动HTTPS。考虑到易用性和安全性，Caddy可用于通过单个配置文件快速部</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://mile3033.github.io/archives/2018/5/22/">
+                <h3 class="media-heading">电影公司LOGO</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">看了篇文章，好莱坞的著名公司30个著名的logo，于是乎查找看看还有没，发现很多。。收集整理了75个大小LOGO。还有一些按照字母排列的公司</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://mile3033.github.io/archives/141/">
+                <h3 class="media-heading">自用软件推荐</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">用了这么多年电脑,肯定有些高效率的软件收藏.下面推荐的软件可以说是用了很多年,并且以后会一直用下去的软件. 为什么会做这个东东呢,主要还是因为</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://mile3033.github.io/archives/140/">
+                <h3 class="media-heading">Potplayer禁止联网</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">potplayer是一款非常受欢迎的视频播放器，其具有非常强大的功能。不过，一些 win10系统 用户反馈，potplayer经常会弹出“自动更</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://mile3033.github.io/archives/139/">
+                <h3 class="media-heading">编辑器 Atom介绍</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">我一直在 Windows 上寻找一款足够媲美 MWeb 和 Ulysses 的 Markdown 编辑器。可惜 Windows 上优秀的编辑器较少，于是我盯上了这款本为程序员设计的 Atom 编辑器。 我在对 Atom 有想法之前，使用的</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://mile3033.github.io/archives/138/">
+                <h3 class="media-heading">启动器 Rolan2</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">在 macOS 中，所有的软件都被放在 LaunchPad 中，只需一个手势就可以快速打开。虽然 Windows 10 中的「开始屏幕」也能做到类似的事情。但是由于 UWP 软件和传统 x86 软件的待遇完全</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://mile3033.github.io/archives/137/">
+                <h3 class="media-heading">谷歌插件new Tab</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">打开 Chrome 浏览器的新标签页，或者在浏览器地址栏输入chrome://newtab，我们可以看到这样的默认新标签页页面： 这种标签页最郁闷的地方就是</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://mile3033.github.io/archives/136/">
+                <h3 class="media-heading">谷歌插件Ublock Origin</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">关于 uBlock Origin 有人曾经做过对比：uBlock Origin对比ABP有性能上的优势，其最为突然的性能优势就是其占用极低的内存和 CPU。有分析说adp</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://mile3033.github.io/archives/135/">
+                <h3 class="media-heading">谷歌插件Stylish</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Stylish 是什么？ 开门见山，Stylish 的作用是，它可以把百度首页变成这样： 它还能把知乎「拍扁」，让微博网页版变得简洁无比，让 Feedly 用上 Material Design</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         52 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://mile3033.github.io/images/c.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://mile3033.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/mile3033.github.io\/archives\/138\/';
+          
+            this.page.identifier = '\/archives\/138'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = '3mile';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

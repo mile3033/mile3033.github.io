@@ -1,0 +1,1029 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+
+  
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.40.2 with theme Tranquilpeak 0.4.3-BETA">
+	<meta name="google-site-verification" content="1MuLqoAUgX7XQvWx-S5i3Zm-WP7yyA0LOvApqTweSrk" />
+    <title>群晖SMB3多通道</title>
+    <meta name="author" content="3mile">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="https://mile3033.github.io/favicon.png">
+    
+
+    
+    <meta name="description" content="群晖DSM 6.1-15047 带来的新福利，免费功能&ndash;SMB3 Multi-Channel DS3615xs Release Notes &ndash; DSM6.1-15047 \6. 文件服务 Windows 文件服务及 Mac 文件服务已分別更名为 SMB 及 AFP。 所有的 SMB 服務 (SMB1/2/3) 现">
+    <meta property="og:description" content="群晖DSM 6.1-15047 带来的新福利，免费功能&ndash;SMB3 Multi-Channel DS3615xs Release Notes &ndash; DSM6.1-15047 \6. 文件服务 Windows 文件服务及 Mac 文件服务已分別更名为 SMB 及 AFP。 所有的 SMB 服務 (SMB1/2/3) 现">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="群晖SMB3多通道">
+    <meta property="og:url" content="/archives/1024">
+    <meta property="og:site_name" content="3mile博客">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="3mile博客">
+    <meta name="twitter:description" content="群晖DSM 6.1-15047 带来的新福利，免费功能&ndash;SMB3 Multi-Channel DS3615xs Release Notes &ndash; DSM6.1-15047 \6. 文件服务 Windows 文件服务及 Mac 文件服务已分別更名为 SMB 及 AFP。 所有的 SMB 服務 (SMB1/2/3) 现">
+    
+      <meta name="twitter:creator" content="@3mile1">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="https://mile3033.github.io/img/a.jpg">
+    
+
+    
+      <meta property="og:image" content="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/220405m02kkk0gbyk03tkb.png">
+    
+    
+      <meta property="og:image" content="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/cover/3.jpg">
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://mile3033.github.io/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-117920425-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://mile3033.github.io/">3mile博客</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://mile3033.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://mile3033.github.io/img/a.jpg" alt="作者的图片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://mile3033.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://mile3033.github.io/img/a.jpg" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">3mile</h4>
+        
+          <h5 class="sidebar-profile-bio"><strong>无聊到</strong>只有努力学习技术<br><strong>Email:</strong><a href="mailto:mile3@live.cn">mile3@live.cn</a></h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://mile3033.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://mile3033.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">分类</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://mile3033.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://mile3033.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">归档</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link open-algolia-search" href="https://mile3033.github.io/#search">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+      
+      <span class="sidebar-button-desc">搜索</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://mile3033.github.io/about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/3mile" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="tencent://message/?uin=975714080" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-envelope"></i>
+      
+      <span class="sidebar-button-desc">QQ to Me</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://mile3033.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              post-header-cover--partial"
+       style="background-image:url('https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/cover/3.jpg')"
+       data-behavior="5">
+    
+      <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      群晖SMB3多通道
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-04-01T05:45:46Z">
+        
+  
+  
+  
+  
+    2018 四月 1
+  
+
+      </time>
+    
+    
+  
+  
+    <span>分类于</span>
+    
+      <a class="category-link" href="https://mile3033.github.io/categories/vps">vps</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaIn
+               hasCoverCaption">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+            <span class="post-header-cover-caption caption">A beautiful cover</span>
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<p>群晖DSM 6.1-15047 带来的新福利，免费功能&ndash;SMB3 Multi-Channel</p>
+
+<p>DS3615xs Release Notes &ndash; DSM6.1-15047</p>
+
+<blockquote>
+<p>\6. 文件服务
+Windows 文件服务及 Mac 文件服务已分別更名为 SMB 及 AFP。
+<strong>所有的 SMB 服務 (SMB1/2/3) 现由 Samba 4.4 所提供</strong>
+支持 Mac OS 10.12 或以上版本中，通过 SMB3 使用 Time Machine。
+支持 Bonjour 服务，您可以通过 Time Machine 将文件备份至多个共享文件夹。
+支持在 SMB 协议下使用稀疏文件 (sparse file)，以提升文件系统空间及网络带宽的使用效率。
+通过 SMB 协议挂载 home 文件夹时，可于 Windows 文件资源管理中还原至先前的版本。
+於文件服务的高级设置中启动文件快速复制后，当您复制文件时，若来源于目的地位于相同的 Btrfs 存储空间，文件复制将更为快速。</p>
+</blockquote>
+
+<p>如果你的群晖NAS带2个或更多网卡，升级到DSM 6.1-15047及以上版本后</p>
+
+<p>在PC端增加一张千兆网卡，台式机可以加PCI-E的独立网卡，笔记本可以用USB3.0的千兆网卡，型号品牌不限</p>
+
+<p>便宜的PCI-E螃蟹卡一张15元包邮，然后就可以享受内网NAS读写传输速度翻倍的快感</p>
+
+<p>（当然前提是本身NAS的性能能突破1Gbps，正常x86版本的NAS硬盘不要太慢都可以突破1Gbps）</p>
+
+<p><img src="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/204442d3366r419ureue99.png" alt="img" /></p>
+
+<p>2017.04.28更新</p>
+
+<p>在P大的指导下，实践确认除了Windows Server 2012/2016，黑群晖也支持SMB3多通道传输</p>
+
+<p>目前测试的DSM版本是最新的DSM 6.1-15047 Update 2</p>
+
+<p>步骤一，</p>
+
+<p>群晖WEB管理界面暂时没有SMB3多通道传输的相关设置项，需要手工修改smb.conf配置文件</p>
+
+<p>修改方法，参考：</p>
+
+<p><a href="https://forum.synology.com/enu/viewtopic.php?t=128482">https://forum.synology.com/enu/viewtopic.php?t=128482</a></p>
+
+<p>samba配置文件路径/etc/samba/smb.conf，添加以下命令，保存后重启</p>
+
+<pre><code>server multi channel support = yes
+aio read size = 1
+aio write size = 1
+</code></pre>
+
+<p>可以直接用SSH终端root权限运行vi命令修改添加（P大提供），vi的使用方法请自行百度</p>
+
+<p><code>sudo vi /etc/samba/smb.conf</code></p>
+
+<p>复制代码</p>
+
+<p>或者用使用root用户进入WinSCP修改</p>
+
+<p>DSM5.2 root和admin密码相同，DSM6开始需要使用root账户的话需要手工修改其密码</p>
+
+<p>DMS6及以上版本修改root密码，参考：</p>
+
+<p><a href="https://www.panpinche.com/zhishi/20170313">https://www.panpinche.com/zhishi/20170313</a></p>
+
+<p>使用telnet或者SSH终端，分别输入以下2行命令，xxx为root密码可自行更改，具体见下图</p>
+
+<p><code>sudo su -</code></p>
+
+<p><code>synouser --setpw root xxx</code></p>
+
+<p>复制代码</p>
+
+<p><img src="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/220405m02kkk0gbyk03tkb.png" alt="img" /></p>
+
+<p>然后，WinSCP使用root用户及密码进入DSM目录，修改并保存</p>
+
+<p><img src="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/220406o8kccyq8raydd8k8.png" alt="img" /></p>
+
+<p>步骤二，</p>
+
+<p>群晖控制台WEB界面，控制面板&ndash;文件共享&ndash;文件服务&ndash;高级设置：</p>
+
+<p>最大SMB协议：SMB3</p>
+
+<p>最小SMB协议：SMB2和Large MTU</p>
+
+<p>设置完毕，点应用</p>
+
+<p><img src="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/220405p9c94gxrina9rxnv.png" alt="img" /></p>
+
+<p>群晖设置完毕，重启群晖文件共享服务（重启群晖也可以）</p>
+
+<p>步骤三，</p>
+
+<p>客户端PC分别用\IP进入群晖的2个IP的共享，填入访问凭据（用户名和密码）</p>
+
+<p>双网卡，Win10 PC客户端从黑群晖读取，SMB3多通道效果如下：</p>
+
+<p><img src="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/103843r11z3sx11x76zggw.jpg" alt="img" /></p>
+
+<p>相比SMB3多通道传输，之前传统的链路聚合做法是</p>
+
+<p>把几张网卡绑成一张速度叠加的虚拟网卡，用来满足局域网多终端同时大吞吐量传输的需要</p>
+
+<p>譬如2张1Gbps的千兆网卡绑成1个2Gbps的网卡；3张1Gbps的千兆网卡绑成1个3Gbps的网卡</p>
+
+<p>实现链路聚合，需要满足以下条件</p>
+
+<pre><code>1，文件共享服务端有多张或者加装支持链路聚合的多张网卡（一般要求是同品牌）
+2，支持链路聚合的交换机，譬如支持802.3ad
+3，链路中的网线上不能接入其他设备
+
+</code></pre>
+
+<p>然后，一般认为，这种传统的链路聚合的方式，以常见的譬如2张1Gbps的千兆网卡绑成1个2Gbps的网卡为例：</p>
+
+<p>虽然可以通过给客户端加装网卡的方式链路聚合，实现服务端到客户端都是2Gbps的链路连接速度</p>
+
+<p>但是，单个客户端和服务端之间单文件或者说单线程的传输，都只能跑1条线路，即1Gbps</p>
+
+<p>只有当多个客户端，同时和服务端传输，才能跑满服务端的2Gbps</p>
+
+<p>因此，以上常规链路聚合的方式，存在成本高，单终端传输速度不叠加等缺点</p>
+
+<p>前一阵在网上闲逛，看到了几个帖子，突然感到眼前一亮：</p>
+
+<p>lucifersun网友的帖子，</p>
+
+<p><a href="https://www.chiphell.com/forum.php?mod=viewthread&amp;tid=696565&amp;page=3&amp;authorid=50709">https://www.chiphell.com/forum.php?mod=viewthread&amp;tid=696565&amp;page=3&amp;authorid=50709</a></p>
+
+<p>xmaan网友的帖子，</p>
+
+<p><a href="https://www.chiphell.com/thread-1663962-1-1.html">https://www.chiphell.com/thread-1663962-1-1.html</a></p>
+
+<p>Vespa网友的帖子，</p>
+
+<p><a href="https://test.smzdm.com/pingce/p/36063/">https://test.smzdm.com/pingce/p/36063/</a></p>
+
+<p>于是请教了Pufer大，指出这种文件共享单线程拷贝产生叠加效果，应该是smb3.0多通道自动速度叠加的作用</p>
+
+<p>然后查看了一下samba官方的一些信息：</p>
+
+<p><a href="https://www.samba.org/samba/history/samba-4.4.0.html">https://www.samba.org/samba/history/samba-4.4.0.html</a></p>
+
+<blockquote>
+<h1 id="experimental-features">EXPERIMENTAL FEATURES</h1>
+
+<p>SMB3 Multi-Channel
+-&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;
+Samba 4.4.0 adds <em>experimental</em> support for SMB3 Multi-Channel.
+Multi-Channel is an SMB3 protocol feature that allows the client
+to bind multiple transport connections into one authenticated
+SMB session. This allows for increased fault tolerance and
+throughput.</p>
+</blockquote>
+
+<p>上面的几篇文章都能看到，单线程拷贝时，每个网卡上都有速度</p>
+
+<p>看来smb传输自动调用将流量分配到了多张网卡上，达到了速度叠加的效果</p>
+
+<p>smb3多通道生效，家庭常规网络部署结构：</p>
+
+<p><img src="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/105521n58epr84pjpg8z63.png" alt="img" /></p>
+
+<p>相比传统的链路聚合，smb3多通道传输速度叠加的方式，有设置简单、成本低等特点</p>
+
+<p>一，价格</p>
+
+<p>1，驱动支持链路聚合的网卡，譬如Intel的独立网卡一般都比较贵；而PCI-E的螃蟹卡只要15元包邮就可以买到，而且可以混搭</p>
+
+<p>2，支持链路聚合的路由器或者交换机，YLJ一般几百起步，行货更贵；smb3多通道叠加普通路由器LAN口或者傻瓜交换机都可以</p>
+
+<p>二，设置</p>
+
+<p>传统链路聚合，从网卡到交换机，都要做链路聚合设置；smb3多通道叠加基本无需任何操作</p>
+
+<p>可惜上面几篇文章中对如何实现，并未有太详细的描述</p>
+
+<p>于是，自己实践了下：</p>
+
+<p>服务端是2012、2016，客户端是Win10，客户端上操作，向服务端共享读写都可以顺利叠加</p>
+
+<p>但是服务端上操作，向客户端共享读写，不能叠加</p>
+
+<p>所以，又试了用2台PC（DELL台式机和3215U小主机），分别都安装了Windows Server 2016数据中心GUI版这</p>
+
+<p>样实现了2边PC上操作都有叠加效果</p>
+
+<p>操作很简单，给各个网卡设置了同网段的固定IP，新建共享文件夹，关闭防火墙</p>
+
+<p>4网卡SMB3 Multi-Channel叠加效果：</p>
+
+<p>DELL台式机上操作</p>
+
+<p>从服务端3215U小主机上的共享读取：</p>
+
+<p><img src="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/161304w9699y0e9yxt3tcy.png" alt="img" /></p>
+
+<p>写入服务端3215U小主机上的共享：</p>
+
+<p><img src="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/161304zq2irvui2vtsu12i.png" alt="img" /></p>
+
+<p>3215U小主机上操作</p>
+
+<p>从服务端DELL主机上的共享读取：</p>
+
+<p><img src="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/161304u93pcp333bpqzp0c.png" alt="img" /></p>
+
+<p>写入服务端DELL主机上的共享：</p>
+
+<p><img src="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/161305zigqmfsiccc6jm6f.png" alt="img" /></p>
+
+<p>通过微软的TCPView监听工具，我们来看下SMB3多通道的传输情况</p>
+
+<p>先看一下迅雷的下载方式，多线程从本地多个端口连接远程服务器的端口进行下载</p>
+
+<p>这边可以看到基本都是TCP协议连接的服务端80端口</p>
+
+<p><img src="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/171543sffnf8inikn7ftzr.png" alt="img" /></p>
+
+<p>然后再看smb3多通道的传输情况，这边以双网卡的情况为例</p>
+
+<p>无论是读还是写，都是本地双网卡2个IP的2个端口去和服务端对应网卡2个IP的TCP 445端口传输</p>
+
+<p>形成双线程传输产生速度2倍叠加的效果</p>
+
+<p><img src="https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/171543nl4fizb51r6jaatf.png" alt="img" /></p>
+
+<p>由此可以看到SMB3多通道传输利用了多线程传输来达到速度翻倍的效果</p>
+
+<p>但是关于多线程传输本身，也需要辩证的看待它的优缺点</p>
+
+<p>我们知道，不管是硬盘还是U盘，如果同时读取或者写入2个文件，速度会下降很多</p>
+
+<p>以HDD为例，单文件传输时理想情况磁头可以做单方向顺序读写</p>
+
+<p>而同时操作2个文件磁头将会在2个位置区域不停的来回切换，所以传输速度大大降低</p>
+
+<p>2个以上多文件的话，传输速度下降更多，SSD和HDD RAID的情况还会更复杂</p>
+
+<p>所以一定程度增加读写线程，可以增加NAS吞吐量，但是线程太多的话反而会影响NAS传输速度</p>
+
+<p>所以这一点也需要在实际操作中留意</p>
+
+<p>测试过程中也遇到了一些问题</p>
+
+<p>1，虽然各品牌网卡混搭，包括低端的螃蟹网卡、USB网卡也可以顺利叠加</p>
+
+<p>但是碰到1例Intel 9301CT PCI-E网卡加入后不能叠加的情况</p>
+
+<p>2，Windows Server 2012/2016做服务器，搭配Win10客户端叠加，日常家庭简易共享场景应该够用了</p>
+
+<p>但是如果群晖配合Win10客户端能实现的话，实际意义就更大了</p>
+
+<p>据P大介绍，DSM6.1以上版本支持，接下来将会进行进一步测试</p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://mile3033.github.io/archives/934/" data-tooltip="photo">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://mile3033.github.io/archives/1014/" data-tooltip="如何用Hugo创建一个博客">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://mile3033.github.io/archives/1024/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://mile3033.github.io/archives/1024/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://mile3033.github.io/archives/1024/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 3mile. 版权所有
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://mile3033.github.io/archives/934/" data-tooltip="photo">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://mile3033.github.io/archives/1014/" data-tooltip="如何用Hugo创建一个博客">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://mile3033.github.io/archives/1024/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://mile3033.github.io/archives/1024/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://mile3033.github.io/archives/1024/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmile3033.github.io%2Farchives%2F1024%2F">
+          <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fmile3033.github.io%2Farchives%2F1024%2F">
+          <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fmile3033.github.io%2Farchives%2F1024%2F">
+          <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d43ec96f413503264aab5d1cfe2ab8db";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://mile3033.github.io/img/a.jpg" alt="作者的图片" />
+    
+    <h4 id="about-card-name">3mile</h4>
+    
+      <div id="about-card-bio"><strong>无聊到</strong>只有努力学习技术<br><strong>Email:</strong><a href="mailto:mile3@live.cn">mile3@live.cn</a></div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        苦逼码农一枚
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        中国.成都
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="搜索" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://mile3033.github.io/archives/2018/0526/">
+                <h3 class="media-heading">Caddy&#43;Hugo双GO组合并实现github的webhook钩子推送</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">原因 一. 首先,为什么要用这么复杂的标题? 为什么标题会这么复杂呢？原因很简单。我自己被搞昏了，为了体现我的眩晕程度，所以用了这个复杂的名字。 另</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://mile3033.github.io/archives/2018/05/26/">
+                <h3 class="media-heading">Centos7上安装和配置Caddy</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">介绍 Caddy是一个新兴的Web服务器程序，它支持HTTP / 2和自动HTTPS。考虑到易用性和安全性，Caddy可用于通过单个配置文件快速部</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://mile3033.github.io/archives/2018/5/22/">
+                <h3 class="media-heading">电影公司LOGO</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">看了篇文章，好莱坞的著名公司30个著名的logo，于是乎查找看看还有没，发现很多。。收集整理了75个大小LOGO。还有一些按照字母排列的公司</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://mile3033.github.io/archives/141/">
+                <h3 class="media-heading">自用软件推荐</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">用了这么多年电脑,肯定有些高效率的软件收藏.下面推荐的软件可以说是用了很多年,并且以后会一直用下去的软件. 为什么会做这个东东呢,主要还是因为</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://mile3033.github.io/archives/140/">
+                <h3 class="media-heading">Potplayer禁止联网</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">potplayer是一款非常受欢迎的视频播放器，其具有非常强大的功能。不过，一些 win10系统 用户反馈，potplayer经常会弹出“自动更</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://mile3033.github.io/archives/139/">
+                <h3 class="media-heading">编辑器 Atom介绍</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">我一直在 Windows 上寻找一款足够媲美 MWeb 和 Ulysses 的 Markdown 编辑器。可惜 Windows 上优秀的编辑器较少，于是我盯上了这款本为程序员设计的 Atom 编辑器。 我在对 Atom 有想法之前，使用的</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://mile3033.github.io/archives/138/">
+                <h3 class="media-heading">启动器 Rolan2</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">在 macOS 中，所有的软件都被放在 LaunchPad 中，只需一个手势就可以快速打开。虽然 Windows 10 中的「开始屏幕」也能做到类似的事情。但是由于 UWP 软件和传统 x86 软件的待遇完全</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://mile3033.github.io/archives/137/">
+                <h3 class="media-heading">谷歌插件new Tab</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">打开 Chrome 浏览器的新标签页，或者在浏览器地址栏输入chrome://newtab，我们可以看到这样的默认新标签页页面： 这种标签页最郁闷的地方就是</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://mile3033.github.io/archives/136/">
+                <h3 class="media-heading">谷歌插件Ublock Origin</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">关于 uBlock Origin 有人曾经做过对比：uBlock Origin对比ABP有性能上的优势，其最为突然的性能优势就是其占用极低的内存和 CPU。有分析说adp</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://mile3033.github.io/archives/135/">
+                <h3 class="media-heading">谷歌插件Stylish</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Stylish 是什么？ 开门见山，Stylish 的作用是，它可以把百度首页变成这样： 它还能把知乎「拍扁」，让微博网页版变得简洁无比，让 Feedly 用上 Material Design</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         52 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://mile3033.github.io/images/c.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://mile3033.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/mile3033.github.io\/archives\/1024\/';
+          
+            this.page.identifier = '\/archives\/1024'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = '3mile';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+
