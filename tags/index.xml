@@ -6,10 +6,19 @@
     <description>Recent content in Tags on 3mile博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 06 May 2018 12:35:58 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 01 Jun 2018 14:35:24 +0800</lastBuildDate>
     
 	<atom:link href="https://mile3033.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title></title>
+      <link>https://mile3033.github.io/tags/</link>
+      <pubDate>Fri, 01 Jun 2018 14:35:24 +0800</pubDate>
+      
+      <guid>https://mile3033.github.io/tags/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Atom</title>

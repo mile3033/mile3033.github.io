@@ -6,10 +6,19 @@
     <description>Recent content on 3mile博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 26 May 2018 11:51:03 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 01 Jun 2018 14:35:24 +0800</lastBuildDate>
     
 	<atom:link href="https://mile3033.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rufus_Usb启动制作</title>
+      <link>https://mile3033.github.io/archives/2018/06/01/</link>
+      <pubDate>Fri, 01 Jun 2018 14:35:24 +0800</pubDate>
+      
+      <guid>https://mile3033.github.io/archives/2018/06/01/</guid>
+      <description>Rufus 轻松创建USB启动盘 Rufus 是一个可以帮助格式化和创建可引导USB闪存盘的工具，比如 USB 随身碟，记忆棒等等。 在如下场景中会非常有用： 你需要把一些可</description>
+    </item>
     
     <item>
       <title>Caddy&#43;Hugo双GO组合并实现github的webhook钩子推送</title>
